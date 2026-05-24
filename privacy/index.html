@@ -30,7 +30,8 @@
 
   <div class="card">
     <h2>Kurzfassung</h2>
-    <p>Core ist eine lokal arbeitende App. Alle Daten, die du eingibst – Trainings, Wasser, Supplements, Ziele – werden ausschließlich auf deinem iPhone gespeichert. Es gibt keine Server, kein Konto, kein Tracking, keine Werbung, keine Drittanbieter-SDKs mit Datenzugriff.</p>
+    <p>Core ist eine lokal arbeitende App. Alle Daten, die du eingibst – Trainings, Wasser, Supplements, Ziele – werden ausschließlich auf deinem Gerät gespeichert. Es gibt kein Konto, kein Tracking deiner App-Nutzung, keine Werbung.</p>
+    <p>Eine einzige Drittanbieter-Komponente ist eingebunden: die Karten-Ansicht auf Android nutzt das Maps SDK von Google, um GPS-Tracks darzustellen. Beim Anzeigen einer Karte werden Karten-Tiles von Google-Servern geladen – Details unter Punkt 7. Auf iOS kommt Apple Maps zum Einsatz; auch hier verlässt nichts deine eigenen Daten das Gerät.</p>
     <p>Was nicht hochgeladen wird, kann auch nicht geleakt werden. So einfach.</p>
   </div>
 
@@ -58,8 +59,8 @@
 
   <div class="card">
     <h2>3. Wie und wo gespeichert wird</h2>
-    <p>Sämtliche Eingaben werden in einer lokalen SQLite-Datenbank im sandboxed Speicher der App auf deinem iPhone abgelegt. Die Daten verlassen dein Gerät nicht.</p>
-    <p>Eine Übertragung an Server – sei es durch Core selbst oder durch Drittanbieter – findet nicht statt. Core enthält keine Analyse-, Crash-Reporting- oder Werbe-SDKs.</p>
+    <p>Sämtliche Eingaben werden in einer lokalen SQLite-Datenbank im sandboxed Speicher der App auf deinem Gerät abgelegt. Diese App-Daten verlassen dein Gerät nicht.</p>
+    <p>Eine Übertragung deiner Inhalte an Server – sei es durch Core selbst oder durch Drittanbieter – findet nicht statt. Core enthält keine Analyse-, Crash-Reporting- oder Werbe-SDKs. Die einzige eingebundene Drittanbieter-Komponente mit Netzwerk-Aufrufen ist die Karten-Ansicht auf Android (Google Maps SDK, siehe Punkt 7); sie verarbeitet keine deiner App-Inhalte, sondern lädt nur Karten-Tiles.</p>
     <h3>Speicherdauer</h3>
     <p>Die Daten bleiben auf deinem Gerät, bis du sie selbst löschst oder die App deinstallierst. Beim Deinstallieren von Core werden alle App-Daten vom Betriebssystem automatisch entfernt.</p>
   </div>
@@ -74,26 +75,45 @@
   </div>
 
   <div class="card">
-    <h2>5. iCloud-Backup</h2>
+    <h2>5. Geräte-Backup (iCloud bzw. Google-Konto)</h2>
+    <h3>iOS</h3>
     <p>iOS sichert App-Daten standardmäßig in dein iCloud-Backup, sofern du iCloud-Backup auf deinem Gerät aktiviert hast. Diese Sicherung erfolgt durch das Betriebssystem, nicht durch Core. Empfänger der iCloud-Daten ist Apple Inc.; es gelten die Datenschutzbestimmungen von Apple (<a href="https://www.apple.com/legal/privacy/de-ww/" rel="noreferrer">apple.com/legal/privacy</a>).</p>
     <p>Du kannst iCloud-Backups für Core unter <em>Einstellungen → [Dein Name] → iCloud → iCloud-Backup</em> bzw. <em>iCloud → Apps verwalten</em> deaktivieren.</p>
+    <h3>Android</h3>
+    <p>Android sichert App-Daten standardmäßig über „Google-Konto-Backup" (auch „Auto Backup for Apps") in dein Google Drive, sofern du diese Funktion auf deinem Gerät aktiviert hast. Diese Sicherung erfolgt durch das Betriebssystem, nicht durch Core. Empfänger der Google-Drive-Daten ist Google LLC; es gelten die Datenschutzbestimmungen von Google (<a href="https://policies.google.com/privacy?hl=de" rel="noreferrer">policies.google.com/privacy</a>).</p>
+    <p>Du kannst das Backup für Core unter <em>Einstellungen → System → Sicherung</em> bzw. in den Google-Konto-Einstellungen deaktivieren.</p>
     <h3>Lokales Backup &amp; Restore</h3>
-    <p>Core bietet zusätzlich eine eigene Export-Funktion. Damit erzeugst du eine Backup-Datei deiner App-Daten und kannst sie speichern, wohin du willst (Dateien-App, iCloud Drive, Mac, etc.). Es liegt in deiner Verantwortung, wo du diese Datei ablegst und wer darauf Zugriff hat.</p>
+    <p>Core bietet zusätzlich eine eigene Export-Funktion. Damit erzeugst du eine Backup-Datei deiner App-Daten und kannst sie speichern, wohin du willst (Dateien-App, iCloud Drive, Google Drive, lokaler Speicher, Mac/PC, etc.). Es liegt in deiner Verantwortung, wo du diese Datei ablegst und wer darauf Zugriff hat.</p>
   </div>
 
   <div class="card">
     <h2>6. Benachrichtigungen</h2>
-    <p>Core kann dir lokale Erinnerungen anzeigen (z. B. „Wasser trinken", „Workout-Pause vorbei"). Diese Benachrichtigungen werden ausschließlich auf deinem Gerät erzeugt und ausgelöst. Es findet keine Übertragung an Push-Server statt; insbesondere wird kein APNs-Token verwendet.</p>
-    <p>Benachrichtigungen kannst du jederzeit unter <em>Einstellungen → Mitteilungen → Core</em> deaktivieren.</p>
+    <p>Core kann dir lokale Erinnerungen anzeigen (z. B. „Wasser trinken", „Workout-Pause vorbei"). Diese Benachrichtigungen werden ausschließlich auf deinem Gerät erzeugt und ausgelöst. Es findet keine Übertragung an Push-Server statt; insbesondere wird weder ein APNs-Token (iOS) noch ein FCM-Token (Android) verwendet.</p>
+    <p>Benachrichtigungen kannst du jederzeit unter <em>Einstellungen → Mitteilungen → Core</em> (iOS) bzw. <em>Einstellungen → Apps → Core → Benachrichtigungen</em> (Android) deaktivieren.</p>
   </div>
 
   <div class="card">
-    <h2>7. Externe Links</h2>
-    <p>Core enthält in den Einstellungen einen Verweis auf das öffentliche Instagram-Profil des Entwicklers, um Feedback zu ermöglichen. Beim Antippen öffnet iOS – sofern installiert – die Instagram-App oder die Webseite von Instagram. Für die dortige Verarbeitung deiner Daten ist allein der jeweilige Betreiber verantwortlich.</p>
+    <h2>7. Karten (Google Maps, Android)</h2>
+    <p>Auf Android verwendet Core das <strong>Maps SDK for Android</strong> von Google, um aufgezeichnete GPS-Tracks (z. B. Läufe, Spaziergänge) auf einer Karte darzustellen. Auf iOS kommt für denselben Zweck Apple Maps (MapKit) zum Einsatz, ohne Übertragung an Google.</p>
+    <p>Sobald in der App eine Karten-Ansicht geöffnet wird, lädt das Google-SDK Karten-Tiles direkt von Servern der Google LLC. Dabei werden technisch zwangsläufig folgende Daten an Google übermittelt:</p>
+    <ul>
+      <li>deine <strong>IP-Adresse</strong> (zur Auslieferung der Karten-Daten),</li>
+      <li>der für die Karten-Ansicht angefragte <strong>geografische Ausschnitt</strong> (Koordinaten und Zoom-Stufe der aktuell sichtbaren Karte),</li>
+      <li>technische Geräte- und SDK-Informationen (z. B. Android-Version, Maps-SDK-Version) für Telemetrie und Lizenzprüfung durch Google.</li>
+    </ul>
+    <p>Es werden <strong>keine</strong> deiner in Core erfassten Inhalte (Trainings, Hydration, Supplements, Ziele, Profil-Daten) an Google übertragen. Die aufgezeichneten GPS-Tracks selbst werden lokal in Core gespeichert und nur lokal auf der angezeigten Karte gerendert; sie werden nicht an Google hochgeladen.</p>
+    <p>Empfänger: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA bzw. Google Ireland Ltd. (im EWR). Es gelten die Datenschutzbestimmungen von Google (<a href="https://policies.google.com/privacy?hl=de" rel="noreferrer">policies.google.com/privacy</a>) und die Google-Maps-/Google-Earth-Zusatzbedingungen (<a href="https://maps.google.com/help/terms_maps/" rel="noreferrer">maps.google.com/help/terms_maps</a>). Bei Übermittlung in die USA stützt sich Google auf das EU-US Data Privacy Framework sowie auf Standardvertragsklauseln.</p>
+    <p>Rechtsgrundlage für diese Verarbeitung ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Vertragserfüllung, weil die Karten-Darstellung Teil der von dir aktiv aufgerufenen Funktion ist) sowie ergänzend <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer funktionierenden Karten-Darstellung).</p>
+    <p>Wenn du keine Karten-Tiles an Google ausliefern lassen möchtest, öffne in Core einfach keine Karten-Ansicht. Die App ist auch ohne Karten-Nutzung in vollem Umfang nutzbar.</p>
   </div>
 
   <div class="card">
-    <h2>8. Deine Rechte</h2>
+    <h2>8. Externe Links</h2>
+    <p>Core enthält in den Einstellungen einen Verweis auf das öffentliche Instagram-Profil des Entwicklers, um Feedback zu ermöglichen. Beim Antippen öffnet das Betriebssystem – sofern installiert – die Instagram-App oder die Webseite von Instagram. Für die dortige Verarbeitung deiner Daten ist allein der jeweilige Betreiber verantwortlich.</p>
+  </div>
+
+  <div class="card">
+    <h2>9. Deine Rechte</h2>
     <p>Nach der DSGVO stehen dir folgende Rechte zu:</p>
     <ul>
       <li>Auskunft über verarbeitete Daten (Art. 15)</li>
@@ -103,40 +123,40 @@
       <li>Datenübertragbarkeit (Art. 20) – über die in der App enthaltene Export-Funktion</li>
       <li>Widerspruch (Art. 21) sowie Widerruf einer Einwilligung (Art. 7 Abs. 3)</li>
     </ul>
-    <p>Da Core keine Daten an Dritte übermittelt und keine Daten serverseitig speichert, lassen sich diese Rechte in vollem Umfang von dir selbst über das Gerät ausüben.</p>
+    <p>Da Core deine Inhalte nicht an Dritte übermittelt und nicht serverseitig speichert (mit Ausnahme der unter Punkt 7 beschriebenen Karten-Tile-Anfragen, die keine Inhalte enthalten), lassen sich diese Rechte in vollem Umfang von dir selbst über das Gerät ausüben.</p>
   </div>
 
   <div class="card">
-    <h2>9. Beschwerderecht</h2>
+    <h2>10. Beschwerderecht</h2>
     <p>Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. In Österreich ist das die Österreichische Datenschutzbehörde (<a href="https://www.dsb.gv.at" rel="noreferrer">dsb.gv.at</a>).</p>
   </div>
 
   <div class="card">
-    <h2>10. Kontakt</h2>
+    <h2>11. Kontakt</h2>
     <p>Bei Fragen zum Datenschutz oder zur App:<br>
     E-Mail: <a href="mailto:datenschutz@qmedia.at">datenschutz@qmedia.at</a><br>
     Telefon: <a href="tel:+43720704165">+43 720 704165</a></p>
   </div>
 
   <div class="card">
-    <h2>11. Zukünftige Funktionen (Cloud, optional)</h2>
-    <p>Core ist heute eine reine Offline-App. Es ist möglich, dass in zukünftigen Versionen optionale Cloud-Funktionen ergänzt werden (z. B. Geräte-Synchronisation, geteilte Trainingspläne, Cloud-Backup).</p>
+    <h2>12. Zukünftige Funktionen (Cloud, optional)</h2>
+    <p>Core speichert deine Inhalte heute ausschließlich lokal. Es ist möglich, dass in zukünftigen Versionen optionale Cloud-Funktionen ergänzt werden (z. B. Geräte-Synchronisation, geteilte Trainingspläne, Cloud-Backup).</p>
     <p>Solche Funktionen werden – sofern sie überhaupt eingeführt werden – ausschließlich als <strong>ausdrücklich aktivierbares Opt-in</strong> angeboten. Das heißt konkret:</p>
     <ul>
       <li>Der lokale, offline-only Betrieb bleibt vollständig nutzbar, auch ohne jede Cloud-Funktion.</li>
-      <li>Vor der ersten Übertragung von Daten an einen Server wird deine ausdrückliche Einwilligung eingeholt.</li>
+      <li>Vor der ersten Übertragung von Inhalten an einen Server wird deine ausdrückliche Einwilligung eingeholt.</li>
       <li>Eine Cloud-Funktion lässt sich jederzeit wieder deaktivieren; die zugehörigen Server-Daten werden auf deinen Wunsch hin gelöscht.</li>
       <li>Diese Datenschutzerklärung wird vor Aktivierung eines solchen Features um konkrete Angaben zu Server-Standort, Auftragsverarbeitern, Speicherdauer und Übermittlungen ergänzt.</li>
     </ul>
-    <p>Solange du in der App keine Cloud-Funktion aktiv einschaltest, gelten die Aussagen unter den Punkten 2 bis 6 (keine Server-Übertragung, keine externe Speicherung).</p>
+    <p>Solange du in der App keine Cloud-Funktion aktiv einschaltest, gelten die Aussagen unter den Punkten 2 bis 6 (keine Server-Übertragung deiner App-Inhalte, keine externe Speicherung). Davon unberührt bleibt die unter Punkt 7 beschriebene Karten-Tile-Anfrage auf Android.</p>
   </div>
 
   <div class="card">
-    <h2>12. Änderungen</h2>
+    <h2>13. Änderungen</h2>
     <p>Diese Datenschutzerklärung kann angepasst werden, wenn sich die App ändert oder rechtliche Anforderungen das verlangen. Die jeweils aktuelle Fassung ist hier auf dieser Seite einsehbar.</p>
   </div>
 
-  <p class="meta">Stand: 17. Mai 2026</p>
+  <p class="meta">Stand: 24. Mai 2026</p>
 </main>
 </body>
 </html>

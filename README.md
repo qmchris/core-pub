@@ -1,6 +1,6 @@
 # Core – Public Web Presence
 
-Legal pages and public web presence for the **Core** iOS app
+Legal pages and public web presence for the **Core** app for iOS and Android
 (local-first fitness, hydration, supplements & goals).
 
 ## Pages
